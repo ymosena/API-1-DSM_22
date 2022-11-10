@@ -1,0 +1,128 @@
+{% extends "layout.html" %}
+{% block sidebar %}
+            <aside>
+                <div class="topo">
+                    <div class="logo">
+                        <img src="../static/img/logorosa2.png">
+                    </div>
+                    <div class="fechar" id="fechar-btn">
+                        <span class="material-cons-sharp">close</span>
+                    </div>
+                </div>
+                <div class="sidebar" >
+                    <a href="home">
+                        <span class="material-symbols-outlined">home</span>
+                        <h3>Home</h3>
+                    </a>
+                    <a href="suaConta">
+                        <span class="material-symbols-outlined">person</span>
+                        <h3>Sua Conta</h3>
+                    </a>
+                    <a href="Transacao" class="req_btn">
+                        <span class="material-symbols-outlined">savings</span>
+                        <h3>Poupança</h3>
+                    </a>
+                    <a href="deposito" class="req_btn">
+                        <span class="material-symbols-outlined">account_balance_wallet</span>
+                        <h3>Depósito</h3>
+                    </a>
+                    <a href="saque" class="req_btn">
+                        <span class="material-symbols-outlined">payments</span>
+                        <h3>Saque</h3>
+                    </a>
+                    <a href="Transacao" class="req_btn">
+                        <span class="material-symbols-outlined">currency_exchange</span>
+                        <h3>Transferência</h3>
+                    </a>
+                    <a href="{{ url_for('index') }}" class="logout">
+                        <span class="material-symbols-outlined">logout</span>
+                        <h3>Sair</h3>
+                    </a>
+                </div>
+            </aside>
+        {% endblock %}
+    {% block conteudo %}
+        <main>
+            <div class="bloco-info">
+                <div class="saldo">
+                    <span class="material-symbols-outlined">attach_money</span>
+                    <div class="conteudo-saldo">
+                        <div class="text-saldo">
+                            <h3>Seu Saldo</h3>
+                            <h1>R$ {{saldo}}</h1>
+                        </div>
+                    </div>      
+                </div>
+                <div class="saldo">
+                    <span class="material-symbols-outlined">money_off</span>
+                    <div class="conteudo-saldo">
+                        <div class="text-saldo">
+                            <h3>Juros Cheque Especial</h3>
+                            <h1>R$ {{chequeEspcial}}</h1>
+                        </div>
+                    </div>      
+                </div>
+                <div class="saldo">
+                    <span class="material-symbols-outlined">real_estate_agent</span>
+                    <div class="conteudo-saldo">
+                        <div class="text-saldo">
+                            <h3>Valor Devido Total</h3>
+                            <h1>R$ {{valorDevidoTotal}}</h1>
+                        </div>
+                    </div>      
+                </div>
+            </div>
+                <div class="data">
+                    <form action="FiltroData" method="POST">
+                        <label class="form-date" for="input-date">De:</label>
+                        <input type="date" class="input-date" name="DataExtratoDe">
+                        <label class="form-date" for="input-date">Até:</label>
+                        <input type="date" class="input-date" name="DataExtratoAte">
+                        <input type="submit" class="btnd" value="Pesquisar">
+                    </form>
+                </div>
+                {% block Tabela %}
+                <div class="Extrato">
+                    <div class="texto-extrato">
+                        <h2>Extrato</h2>
+                    </div>
+                    <div class="scroll-div">
+                        <div class="scroll-object">
+                            <table class="tabelaRequisicao">
+                                <!-- Inicio da Tabela -->
+                                <tr class="linhaTabela">
+                                    <!-- Forma o Cabeçalho de acordo com o que existe dentro de cabecalhoTabela (cabecalhoTabela é mandado pelo back)     -->
+                                    {% for header in cabecalhoTabela %}
+                                    <th>{{ header }}</th>
+                                    {% endfor %}
+                                </tr>
+                                {% for row in pesquisaSQLTabela %}
+                                <form action="{{ url_for('verMais') }} "  method="POST">
+                                <tr class="linhaTabela">
+                                    <!-- Forma as linhas da tabela -->
+                                    {% for cell in row %}
+                                    <!-- Sempre a 1° linha será o ID identificadora de alguma tabela -->
+                                    <!-- A 1° Linha célula/coluna que é o ID não irá aparecer -->
+                                    {% if cell == row[0] %}
+                                        <input type="hidden" value="{{ cell }}" name="IdTransacao">
+                                    {% else %}
+                                    <a href="#">
+                                        <td class="celula">{{ cell }}</td>
+                                    </a>
+                                    {% endif %}
+                                    {% endfor %}
+                                    <td> 
+                                        <input type="submit" name="verMais" value="Ver Mais" class="btnd solid">
+                                    </td> 
+                                </tr>
+                                </form>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                {% endblock %}
+            </div>
+        </main>
+    {% endblock %}
+    </body>
+</html>
