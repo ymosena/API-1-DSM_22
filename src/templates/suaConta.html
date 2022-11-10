@@ -6,50 +6,67 @@
 {% extends "homenew.html" %}
 {% endif %}
 {% block conteudo %}
-<div class="conteudo">
-    <div class="elemento">
-        <span id="tituloElemento">Dados Atuais</span>
-        <div class="blocoElemento">
-            <div class="inputElemento">
-                <input type="hidden" value="{{idUsuario}}" name="idUsuario">
-                <input type="hidden" value="{{idFuncionario}}" name="idFuncionario">
-                <div class="inputValor">
-                        <span id="textoInputElemento">Nome completo: <br>{{nome}}</span>
+<div class="conteudo-suaconta">
+        <div class="texto-elemento-suaconta">
+                <div class="tituloelemento">
+                    <span id="tituloElemento">Dados Atuais</span>
                 </div>
-                <div class="inputValor">
-                        <span id="textoInputElemento">Email: <br>{{email}}</span>
-                </div>
-                <div class="inputValor">
-                        <span id="textoInputElemento">Endereço: <br>{{endereco}}</span>
-                </div>
-                <div class="inputValor">
-                        <span id="textoInputElemento">CPF: <br>{{cpf}}</span>
-                </div>
-                <div class="inputValor">
-                        <span id="textoInputElemento">Sexo: <br>{{genero}}</span>
-                </div>
-                <div class ="inputValor">
-                        <span id="textoInputElemento">Data de Nascimento: </span>
-                        <input id="textoInputElemento" type="date" name="datanasc" value={{dataNasc}} readonly required>
-                </div>
-                {% if loginVisivel == False %}
-                        <input type="hidden" value="{{login}}" name="login">
-                    {% else %}
-                        <div class ="inputValor">
-                            <span id="textoInputElemento">Login:<br>{{login}}</span>
-                        </div>
-                    {% endif %}
-                <div class ="inputValor">
-                        <span id="textoInputElemento">Senha: <br>{{senha}}</span>
-                </div>
-                <div class="botaoElemento">
+                <div class="btn_criar">
                         <a href="alteraU">
-                                <input type="button" id="botaoVoltar" value="Alterar Dados">
+                            <button class="btn_elemento">
+                                <span class="material-symbols-outlined">edit</span>
+                                <h3>Alterar</h3>
+                            </button>
                         </a>
                 </div>
-            </div>
+        </div>  
+        <hr>      
+        <div class="elemento-suaconta">
+                <div class="blocoElemento-suaconta">
+                        <div class="inputElemento-suaconta">
+                                <input type="hidden" value="{{idUsuario}}" name="idUsuario">
+                                <input type="hidden" value="{{idFuncionario}}" name="idFuncionario">
+                             
+                                <div class="inputValorTeste">
+                                        <h3 id="textoInputElemento">Nome completo</h3>
+                                        <span>{{nome}}</span>
+                                </div>
+                         
+                                <span>
+                                <div class="inputValorTeste">
+                                        <h3 id="textoInputElemento">Email</h3>
+                                        <span>{{email}}</span>
+                                </div>
+                                </span>
+                                <div class="inputValorTeste">
+                                        <h3 id="textoInputElemento">Endereço</h3>
+                                        <span>{{endereco}}</span>
+                                </div>
+                                <div class="inputValorTeste">
+                                        <h3 id="textoInputElemento">CPF</h3>
+                                        <span>{{cpf}}</span>
+                                </div>
+                               
+                                        <h3 id="textoInputElemento">Gênero</h3>
+                                        <span>{{genero}}</span>
+                                </div>
+                                <div class ="inputValor">
+                                        <span id="textoInputElemento">Data de Nascimento: </span>
+                                        <input id="textoInputElemento" type="date" name="datanasc" value={{dataNasc}} readonly required>
+                                </div>
+                                {% if loginVisivel == False %}
+                                        <input type="hidden" value="{{login}}" name="login">
+                                {% else %}
+                                <div class ="inputValor">
+                                        <span id="textoInputElemento">Login:<br>{{login}}</span>
+                                </div>
+                                 {% endif %}
+                                <div class ="inputValor">
+                                        <span id="textoInputElemento">Senha: <br>{{senha}}</span>
+                                </div>
+                        </div>
+                </div>
         </div>
-   </div>
 </div>
 <script src="../static/scripts/confirmarsenha.js"></script>
 <script src="../static/scripts/validarCPF.js"></script>

@@ -3,8 +3,6 @@
 :root{
     /* paleta de cores */
     --color-primary: #B71258;
-    --color-sucess:#41f1b6;
-    --color-warning:#ffbb55;
     --color-white:#fff;
     --color-info-dark:#7d8da1;
     --color-info-light:#dce1eb;
@@ -224,25 +222,6 @@ main .data input[type="date"]{
     border-color: #CC5587;
     box-shadow: 0 0 0 0.05rem #DDA0DD;
 }
-/* .form-date{
-    font-size: 1.5vh;
-    line-height: 2.4vh;
-    padding: 0.5vh;
-    margin-top: 1rem;
-    margin-left: 2rem;
-} */
-/* .input-date{
-    padding: 0.5vh;
-    appearance: none;
-    color: #b71258;
-    font-size: 1vh;
-    border: 1px solid #b71258;
-    border-radius: 1vh;
-    background: #e7e7e7;
-    display: inline-block;
-    visibility: visible;
-} */
-
 main .Extrato{
     margin-top:0.8rem ;
     height: 60vh;
@@ -286,7 +265,7 @@ tr:hover{background-color:var(--color-background)}
 .scroll-div{
     width: 100%;
     background:var(--color-background);
-    height: 100vh;
+    height: 50vh;
     overflow: hidden;
     overflow-y: scroll;
 }
@@ -500,9 +479,63 @@ th, td {
     width: 5vw;
     height: 2.5vh;
     border-radius: var(--border-radius-2);
+    
 }
 .btn_alterar:hover{
     background-color: #CC5587;
+}
+/* Sua Conta */
+
+.conteudo-suaconta{
+    margin-top:2rem ;
+    height: 50vh;
+    
+}
+.elemento-suaconta{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 1vh 3vw;
+}
+.blocoElemento-suaconta{
+    align-items: center;
+    width: 80vw;
+    height: 75vh;
+    background:var(--color-white);
+    box-shadow: var(--box-shadow) ;
+    padding: 2vw;
+    justify-content: center;
+    border-radius: var(--border-radius-2);
+}
+.texto-elemento-suaconta{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1vh 3vw;
+    font-weight: 800;
+}
+.inputElemento-suaconta{
+    display: grid;
+
+}
+#textoInputElemento{
+    display: ;
+    text-align: left;
+    font-weight: 600;
+    font-size: 2vh;
+    color: var(--color-dark-variant);
+}
+.inputValor{
+
+    flex-direction: column;
+    justify-items: center;
+    align-items: left;
+    gap: 1vh;
+    height: auto;
+    text-align: left;
+    width: 30vw;
+    border-bottom: 0.01vh solid black;
 }
 /* Deposito */
 .conteudo{
@@ -579,26 +612,6 @@ th, td {
     height: auto;
     text-align: left;
 }
-
-#textoInputElemento{
-    text-align: left;
-    font-weight: 600;
-    font-size: 2vh;
-    color: var(--color-dark-variant);
-}
-
-.inputValor{
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    align-items: left;
-    margin-top: 2vh;
-    gap: 1vh;
-    height: auto;
-    text-align: left;
-    border-bottom: 0.01vh solid black;
-}
-
 .botaoElemento{
     display: flex;
     flex-direction: row;
